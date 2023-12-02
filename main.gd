@@ -4,7 +4,7 @@ extends Control
 @export var text_edit_input: TextEdit
 
 @export var button_run: Button
-@export var label_output: Label
+@export var text_edit_output: TextEdit
 
 func _ready() -> void:
 	button_load_input.button_down.connect(_on_load_input)
@@ -15,4 +15,5 @@ func _on_load_input() -> void:
 	
 func _on_run() -> void:
 	var script = preload("res://days/day01.gd").new()
-	script.run("Hello World")
+	var output = script.run(text_edit_input.text)
+	text_edit_output.text = output
