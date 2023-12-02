@@ -1,15 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvmfe7ajkdgnj"]
+[gd_scene load_steps=5 format=3 uid="uid://dvmfe7ajkdgnj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cqpn1"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx8os"]
+bg_color = Color(0.415686, 0.415686, 0.415686, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_tov6t"]
+font_names = PackedStringArray("Monospace")
+
 [sub_resource type="Theme" id="Theme_iykdb"]
+default_font = SubResource("SystemFont_tov6t")
+default_font_size = 30
+HBoxContainer/constants/separation = 10
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_cx8os")
 VBoxContainer/constants/separation = 10
 
-[node name="Main" type="Control" node_paths=PackedStringArray("button_load_input", "text_edit_input", "button_run", "text_edit_output")]
+[node name="Main" type="Control" node_paths=PackedStringArray("button_load_input", "text_edit_input", "button_run", "line_edit_output")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +31,7 @@ script = ExtResource("1_cqpn1")
 button_load_input = NodePath("PanelContainerInput/MarginContainer/VBoxContainer/ButtonLoadInput")
 text_edit_input = NodePath("PanelContainerInput/MarginContainer/VBoxContainer/TextEditInput")
 button_run = NodePath("PanelContainerOutput/MarginContainer/HBoxContainer/ButtonRun")
-text_edit_output = NodePath("PanelContainerOutput/MarginContainer/HBoxContainer/TextEditOutput")
+line_edit_output = NodePath("PanelContainerOutput/MarginContainer/HBoxContainer/LineEditOutput")
 
 [node name="PanelContainerInput" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -61,7 +71,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -207.0
-offset_top = -139.0
+offset_top = -144.0
 offset_right = 207.0
 offset_bottom = -81.0
 grow_horizontal = 2
@@ -79,8 +89,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Run"
 
-[node name="TextEditOutput" type="TextEdit" parent="PanelContainerOutput/MarginContainer/HBoxContainer"]
+[node name="LineEditOutput" type="LineEdit" parent="PanelContainerOutput/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Output data..."
+placeholder_text = "..."
 editable = false
