@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvmfe7ajkdgnj"]
+[gd_scene load_steps=3 format=3 uid="uid://dvmfe7ajkdgnj"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_cqpn1"]
 
 [sub_resource type="Theme" id="Theme_iykdb"]
 MarginContainer/constants/margin_bottom = 10
@@ -7,7 +9,7 @@ MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
 VBoxContainer/constants/separation = 10
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" node_paths=PackedStringArray("button_load_input", "text_edit_input", "button_run", "label_output")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +17,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_iykdb")
+script = ExtResource("1_cqpn1")
+button_load_input = NodePath("PanelContainerInput/MarginContainer/VBoxContainer/ButtonLoadInput")
+text_edit_input = NodePath("PanelContainerInput/MarginContainer/VBoxContainer/TextEditInput")
+button_run = NodePath("PanelContainerOutput/MarginContainer/HBoxContainer/ButtonRun")
+label_output = NodePath("PanelContainerOutput/MarginContainer/HBoxContainer/LabelOutput")
 
 [node name="PanelContainerInput" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -36,11 +43,11 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainerInput/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="PanelContainerInput/MarginContainer/VBoxContainer"]
+[node name="ButtonLoadInput" type="Button" parent="PanelContainerInput/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Load Input"
 
-[node name="TextEdit" type="TextEdit" parent="PanelContainerInput/MarginContainer/VBoxContainer"]
+[node name="TextEditInput" type="TextEdit" parent="PanelContainerInput/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "Enter the input data here..."
@@ -65,12 +72,12 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainerOutput/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="PanelContainerOutput/MarginContainer/HBoxContainer"]
+[node name="ButtonRun" type="Button" parent="PanelContainerOutput/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Run"
 
-[node name="Label" type="Label" parent="PanelContainerOutput/MarginContainer/HBoxContainer"]
+[node name="LabelOutput" type="Label" parent="PanelContainerOutput/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
