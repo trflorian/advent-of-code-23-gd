@@ -19,7 +19,7 @@ MarginContainer/constants/margin_top = 10
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_cx8os")
 VBoxContainer/constants/separation = 10
 
-[node name="Main" type="Control" node_paths=PackedStringArray("button_load_input", "text_edit_input", "button_run", "line_edit_output")]
+[node name="Main" type="Control" node_paths=PackedStringArray("button_load_input", "text_edit_input", "button_run", "line_edit_output", "http_request")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +32,7 @@ button_load_input = NodePath("PanelContainerInput/MarginContainer/VBoxContainer/
 text_edit_input = NodePath("PanelContainerInput/MarginContainer/VBoxContainer/TextEditInput")
 button_run = NodePath("PanelContainerOutput/MarginContainer/HBoxContainer/ButtonRun")
 line_edit_output = NodePath("PanelContainerOutput/MarginContainer/HBoxContainer/LineEditOutput")
+http_request = NodePath("HTTPRequest")
 
 [node name="PanelContainerInput" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -94,3 +95,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "..."
 editable = false
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
